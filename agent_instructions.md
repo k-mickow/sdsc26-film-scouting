@@ -51,6 +51,7 @@ For questions the tools don't cover, use /execute_query on these tables (connect
   - credit_base_pct, credit_uplift_pct, incentive_pct, incentive_note.
   - match_mountains, match_forest, match_desert, match_canyon, match_plains, match_alpine, match_wetland: 0-1 landscape-type scores (the tools average the requested ones).
   - incentive_score, hotel_score, healthcare_score, airport_score: 0-1 logistics sub-scores (the tools weight them).
+  - logistics_score_equal (the four logistics sub-scores, equal weights), best_landscape (strongest landscape type, or 'Mixed / no strong type' below 0.4) and best_landscape_match: summary columns for styling maps.
 - film_incentives: one row per western county (county_state, credit_base_pct, credit_uplift_pct, incentive_pct, program, uplift_rule, source_urls). Use it for questions like "which counties get an uplift in New Mexico?".
 - classic_film_locations: 38 real filming locations of classic films (film, release_year, location_name, state, setting_type, on_location_notes, geom). To find areas that look like a classic location, find the film_scout_scoring area that contains it (ST_INTERSECTS with `carto-un`.carto.H3_BOUNDARY(area_id)), read its landscape and weather, then call /find_landscapes with the matching landscape type.
 
